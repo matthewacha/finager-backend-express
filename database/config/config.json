@@ -1,0 +1,19 @@
+{
+    "development": {
+        "use_env_variable": "DATABASE_URL"
+    },
+    "test": {
+        "username": "finager_test",
+        "password": "finager_test",
+        "database": "finager_test",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "finager_production",
+        "password": "finager_production",
+        "database": "finager_production",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    }
+}
