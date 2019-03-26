@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+addons:
+    code_climate:
+        repo_token: $codeclimate_repo_token
+script:
+  - yarn install
+  - yarn test
+  - CI=false yarn build
+before_script:
+  - yarn add codeclimate-test-reporter istanbul -g
+after_script:
+  - codeclimate-test-reporter < ./coverage/lcov.info
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: $heroku_api_key
+  skip_cleanup: true
+  local_dir: build
+  on:
+    all_branches: true
